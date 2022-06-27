@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="utf-8">
+  <title>H-Life</title>
+<!-- Bootstrap  -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- css  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Font-Family  -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  
+</head>
+
+<body>
+  <!-- first part -->
+  <section class="first-screen" id="first">
+    <div class="container-fluid">
+      <!-- Nav Bar  -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <img class="logo" src="./images/h-life.png">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#description">About Breast Cancer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact</a>
+            </li>
+            <li class="nav-item">
+              <button onclick="togglePopup()" type="button" class="first-button" >Form</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Title -->
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="title-text">Cancer’s Tough, But So Are You</h1>
+        </div>
+        <div class="col-lg-6">
+          <img class="title-image" src="./images/breast-cancer-ribbon-40852.png">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- form  -->
+  <section id="form">
+    <div class="popup" id="popup-1">
+      <div class="content">
+        <form class="form", action="/predict", method="post">
+          <div class="row">
+            <!-- age  -->
+            <div class="form-group col-6">
+                <p>Please Select your age:</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="age"  value="0" >
+                  <label class="form-check-label" >Below 50</label><br>
+                  <input class="form-check-input" type="radio" name="age" value="1">
+                  <label class="form-check-label">50 & above</label><br>
+                  <!-- <input class="form-check-input" type="radio" name="age" value="2">
+                  <label class="form-check-label">No one has suffered yet</label> -->
+                </div>
+            </div>
+
+            <!-- exercise  -->
+            <div class="form-group col-6">
+                <p>How often do you exercise?</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="exercise"  value="0" >
+                  <label class="form-check-label" >Daily</label><br>
+                  <input class="form-check-input" type="radio" name="exercise" value="1">
+                  <label class="form-check-label">Sometime</label><br>
+                  <input class="form-check-input" type="radio" name="exercise" value="2">
+                  <label class="form-check-label">Not at all</label>
+                </div>
+              
+            </div>
+        </div>
+        <hr class="line">
+        <div class="row">
+            <!-- drink  -->
+            <div class="form-group col-6">
+                <p>How often do you drink alcohol?</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="drink"  value="0" >
+                  <label class="form-check-label" >1 alcoholic drink per day</label><br>
+                  <input class="form-check-input" type="radio" name="drink" value="1">
+                  <label class="form-check-label">2-3 alcoholic drink per day</label><br>
+                  <input class="form-check-input" type="radio" name="drink" value="2">
+                  <label class="form-check-label">Not at all</label>
+                </div>
+               
+            </div>
+
+            <!-- smoke  -->
+            <div class="form-group col-6">
+                <p>Do you smoke?</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="smoke" value="1">
+                  <label class="form-check-label">Yes</label><br>
+                  <input class="form-check-input" type="radio" name="smoke"  value="0" >
+                  <label class="form-check-label" >No</label><br>
+                </div>
+            </div>
+        </div>
+        <hr class="line">
+        <div class="row">
+            <!-- lump -->
+            <div class="form-group col-6">
+                <p>Do you feel any kind of New Lump in the breast or in your
+                    underarm?</p>
+                    <div class="form-check" >
+                      <input class="form-check-input" type="radio"  name="lump" value="1">
+                      <label class="form-check-label">Yes</label><br>
+                      <input class="form-check-input" type="radio" name="lump" value="0">
+                      <label class="form-check-label">No</label><br>  
+                    </div>
+           
+</div>
+            <!-- Swelling-->
+            <div class="form-group col-6">
+                <p>Do you feel your some part of the breast swollen?</p>
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio"  name="swelling" value="1">
+                  <label class="form-check-label">Yes</label><br>
+                  <input class="form-check-input" type="radio" name="swelling" value="0">
+                  <label class="form-check-label">No</label><br>  
+                </div>
+            </div>
+        </div>
+        <hr class="line">
+        <div class="row">
+            <!-- redness  -->
+            <div class="form-group col-6">
+                <p>Is there any redness in the nipple area or the breast?</p>
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio"  name="redness" value="1">
+                  <label class="form-check-label">Yes</label><br>
+                  <input class="form-check-input" type="radio" name="redness" value="0">
+                  <label class="form-check-label">No</label><br>  
+                </div>
+            </div>
+
+            <!-- pain  -->
+            <div class="form-group col-6">
+                <p>Do you feel any pain in the nipple area?</p>
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio"  name="pain" value="1">
+                  <label class="form-check-label">Yes</label><br>
+                  <input class="form-check-input" type="radio" name="pain" value="0">
+                  <label class="form-check-label">No</label><br>  
+                </div>
+                
+            </div>
+        </div>
+        <hr class="line">
+        <div class="row">
+            <!-- shape or size  -->
+            <div class="form-group col-6">
+                <p>Do you feel any change in the size or the shape of the
+                    breast?</p>
+                    <div class="form-check ">
+                      <input class="form-check-input" type="radio"  name="size" value="1">
+                      <label class="form-check-label">Yes</label><br>
+                      <input class="form-check-input" type="radio" name="size" value="0">
+                      <label class="form-check-label">No</label><br>  
+                    </div>
+                  
+            </div>
+
+            <!-- dimpling  -->
+            <div class="form-group col-6">
+                <p>Is there any dimpling of breast skin?</p>
+                <div class="form-check ">
+                  <input class="form-check-input" type="radio"  name="dimpling" value="1">
+                  <label class="form-check-label">Yes</label><br>
+                  <input class="form-check-input" type="radio" name="dimpling" value="0">
+                  <label class="form-check-label">No</label><br>  
+                </div>
+               
+            </div>
+        </div>
+
+        <button type="submit" class="btn form_button" style="background-color: #F565A5;
+        color: white;
+        font-weight:600;"value='predict!' >Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="about" id="description">
+    <div class="container-fluid">
+      <h1 class="about-title"> About Breast Cancer</h1>
+      <div class="row para">
+        <div class=" col-lg-6">
+          <p class="about-para">Breast cancer is a heterogeneous disease, commonly
+            known to start as a local lesion in the breast, and then
+            spread gradually, developing into an invasive cancer that
+            attacks the lymph nodes in the armpits, and other organs.
+            Several factors serve as alarms, and determine the type,
+            treatment and result.
+          </p><br>
+          <p class="about-para">Breast cancer can begin in different parts of the breast.
+            A breast is made up of three main parts: lobules, ducts, and connective tissue.
+            The lobules are the glands that produce milk. The ducts are tubes that carry milk to the nipple.
+            The connective tissue surrounds and holds everything together.
+            Most breast cancers begin in the ducts or lobules.
+          </p><br>
+          <p class="about-para">Breast cancer can spread outside the breast through blood vessels and lymph vessels.
+            When breast cancer spreads to other parts of the body, it is said to have metastasized.
+          </p>
+        </div>
+        <div class=" col-lg-6">
+          <img class="about-image" src="./images/162583254059887918 (1).jfif">
+        </div>
+      </div>
+
+      <div class="row bg-text">
+        <img class="blur" src="./images/IMG-20210707-WA0000-removebg-preview.png">
+        <div class=" col-lg-6">
+          <h1 class="about-title2"> Symptoms </h1>
+          <p class="about-para2">Different people have different symptoms of breast cancer.
+            Some people do not have any signs or symptoms at all.Some warning signs of breast cancer are
+
+          </p><br>
+          <p class="about-para2">
+          <ol type="I">
+            <li>New lump in the breast or underarm (armpit).</li>
+            <li>Thickening or swelling of part of the breast.</li>
+            <li>Irritation or dimpling of breast skin.</li>
+            <li>Redness or flaky skin in the nipple area or the breast.</li>
+            <li>Pain in any area of the breast.</li>
+            <li>Irritation or dimpling of breast skin.</li>
+          </ol>
+          </p>
+        </div>
+        <div class=" col-lg-6">
+          <h1 class="about-title2"> Treatments </h1>
+          <p class="about-para2">Breast cancer is treated in several ways.
+            It depends on the kind of breast cancer and how far it has spread.
+            People with breast cancer often get more than one kind of treatment.
+
+          </p>
+          <p class="about-para2">
+          <ol type="I">
+            <li>Surgery: An operation where doctors cut out cancer tissue.</li>
+            <li>Chemotherapy: Using special medicines to shrink or kill the cancer cells. The drugs can be pills you
+              take or medicines given in your veins, or sometimes both.</li>
+            <li> Hormonal: therapy. Blocks cancer cells from getting the hormones they need to grow.</li>
+            <li> Biological therapy: Works with your body’s immune system to help it fight cancer cells or to control
+              side effects from other cancer treatments.</li>
+            <li>Radiation therapy: Using high-energy rays (similar to X-rays) to kill the cancer cells.</li>
+          </ol>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="contact" id="footer">
+    <div class="container-fluid colored-section">
+      <h2>Contact Us</h2>
+      <p>Have a question or just want to say hi?
+        <br>We would love to hear from you!
+      </p>
+      <button type="button" class="btn send-button">SEND MESSAGE</button>
+    </div>
+    <div class="container-fluid black-section">
+
+      <div class="row">
+        <div class=" col-lg-6 contact-2">
+
+          <h3><img class="icon-2" src="./images/mobile.png">Call Us On</h3>
+          <p>9876543210</p>
+
+          <h3><img class="icon-2" src="./images/162583254059887918 (1).png">Email Us At</h3>
+          <p><a href="mailto:hlife@gmail.com ">hlife@gmail.com</a></p>
+
+          <h3><img class="icon-2" src="./images/162583254059887918 (2).png">Address</h3>
+          <p>Itahari,Sunsari</p>
+
+        </div>
+
+        <div class=" col-lg-6">
+          <img class="foot-img" src="./images/162583254059887918.jfif">
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <script>
+    function togglePopup() {
+    document.getElementById("popup-1")
+     .classList.toggle("active");
+   }
+   </script>
+</body>
+
+</html>
